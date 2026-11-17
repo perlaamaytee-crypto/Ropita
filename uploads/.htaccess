@@ -1,0 +1,8 @@
+# Aquí solo viven fotos de clientes. Si alguien lograra subir código, Apache no lo ejecuta.
+<FilesMatch "\.(php|phtml|phar|html|htm)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
