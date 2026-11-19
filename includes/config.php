@@ -1,77 +1,39 @@
 <?php
-// includes/config.php
-// Todos los datos de la sucursal viven aquí: se cambian en un solo lugar.
+// Configuración central de Ropita: boutique urbana de ropa y accesorios.
 
 const SUCURSAL = [
-    'nombre'    => 'Embutidos El Gran Salchichón',
-    'corto'     => 'El Gran Salchichón',
-    'lema'      => 'El Rey del Jamoncito',
-    'sucursal'  => 'Sucursal Izcalli Norte',
-    'direccion' => 'Av. del Chorizo 69, Col. Los Embutidos',
-    'ciudad'    => 'Cuautitlán Izcalli, Estado de México',
-    'telefono'  => '55 5555 0069',
-    'correo'    => 'hola@gransalchichon.example',
-    'lat'       => 19.6048,
-    'lng'       => -99.1905,
-    'video_id'  => 'o-uov-LlTBI',
+    'nombre'    => 'Ropita',
+    'corto'     => 'Ropita',
+    'lema'      => 'Tu estilo, a tu manera.',
+    'sucursal'  => 'Tienda en línea',
+    'direccion' => 'Atención y pedidos en línea',
+    'ciudad'    => 'Moda para todos los días',
+    'telefono'  => 'Atención por correo',
+    'correo'    => 'hola@ropita.example',
+    'lat'       => 19.4326,
+    'lng'       => -99.1332,
+    'video_id'  => '',
 ];
 
-// Días ISO: 1 = lunes ... 7 = domingo. [hora de apertura, hora de cierre]
-const HORARIO = [
-    1 => [8, 20], 2 => [8, 20], 3 => [8, 20], 4 => [8, 20], 5 => [8, 20], 6 => [8, 20],
-    7 => [9, 15],
-];
-const HORARIO_TEXTO = [
-    'Lunes a sábado' => '8:00 a 20:00',
-    'Domingo'        => '9:00 a 15:00',
-];
+const HORARIO = [1 => [9, 18], 2 => [9, 18], 3 => [9, 18], 4 => [9, 18], 5 => [9, 18], 6 => [10, 16], 7 => [10, 14]];
+const HORARIO_TEXTO = ['Lunes a viernes' => '9:00 a 18:00', 'Sábado' => '10:00 a 16:00', 'Domingo' => '10:00 a 14:00'];
+const CATEGORIAS = ['Novedades', 'Ropa', 'Accesorios'];
+const UNIDADES = ['pieza', 'par', 'conjunto'];
+// Se conserva el nombre de la constante por compatibilidad con el registro existente.
+const EMBUTIDOS = ['Playeras', 'Sudaderas', 'Pantalones', 'Vestidos', 'Chamarras', 'Bolsas', 'Gorras', 'Accesorios', 'Me gusta descubrir'];
 
-const CATEGORIAS = ['Jamones', 'Salchichas', 'Chorizos y longanizas', 'Quesos y más'];
-const UNIDADES   = ['kg', 'pieza', 'paquete'];
-
-const EMBUTIDOS = ['Jamón de pierna', 'Salchicha de pavo', 'Chorizo', 'Mortadela', 'Salami',
-                   'Queso de puerco', 'Longaniza', 'Tocino', 'Todos, no me juzgues'];
-
-// La encuesta: pregunta + opciones permitidas. El servidor solo acepta estas opciones.
 const ENCUESTA = [
-    'embutido_favorito' => ['pregunta' => '¿Cuál es tu embutido favorito?', 'opciones' => EMBUTIDOS],
-    'atencion' => ['pregunta' => '¿Cómo te atienden en la sucursal?', 'opciones' => [
-        'Como reyes, hasta me dan probadita',
-        'Bien, solo que la fila va lenta como lunes',
-        'Regular, me dijeron «ahorita lo veo» hace una hora',
-        'Mejor no opino, el que atiende tiene cuchillo',
-    ]],
-    'limpieza' => ['pregunta' => '¿Qué tal la limpieza del local?', 'opciones' => [
-        'Impecable, hasta mi mamá lo aprobaría',
-        'Bien, el piso brilla más que mi futuro',
-        'Regular, vi una mosca pero iba de paso',
-        'Mejor no miro el piso',
-    ]],
-    'precios' => ['pregunta' => '¿Cómo ves los precios?', 'opciones' => [
-        'Justos, mi cartera sonrió',
-        'Algo caros, pero el jamón lo vale',
-        'Regulares, la mortadela cobra por ser elegante',
-        'Mi cartera pidió ayuda',
-    ]],
-    'frescura' => ['pregunta' => '¿Qué tan fresco está todo?', 'opciones' => [
-        'Fresquísimo, lo juro por el chorizo',
-        'Fresco, nada de misterios en el refri',
-        'Regular, algunos llevan rato ahí',
-        'Siempre huelo antes de comprar',
-    ]],
-    'recomendacion' => ['pregunta' => '¿Recomendarías El Gran Salchichón?', 'opciones' => [
-        '¡Claro, hasta les hago publicidad!',
-        'Solo si me regalan una probadita',
-        'Depende de si hay oferta de jamón',
-        'Lo pensaré después de mi torta',
-    ]],
+    'embutido_favorito' => ['pregunta' => '¿Qué categoría te gustaría ver más?', 'opciones' => EMBUTIDOS],
+    'atencion' => ['pregunta' => '¿Qué te pareció la experiencia de compra?', 'opciones' => ['Excelente', 'Muy buena', 'Buena', 'Podemos mejorar']],
+    'limpieza' => ['pregunta' => '¿Qué tan fácil fue encontrar lo que buscabas?', 'opciones' => ['Muy fácil', 'Fácil', 'Un poco difícil', 'No encontré lo que buscaba']],
+    'precios' => ['pregunta' => '¿Cómo te parecen nuestros precios?', 'opciones' => ['Muy buenos', 'Justos', 'Un poco altos', 'Me gustaría ver más ofertas']],
+    'frescura' => ['pregunta' => '¿Cómo calificarías la variedad del catálogo?', 'opciones' => ['Excelente', 'Muy buena', 'Buena', 'Quiero más variedad']],
+    'recomendacion' => ['pregunta' => '¿Recomendarías Ropita?', 'opciones' => ['¡Claro que sí!', 'Probablemente', 'Aún no lo sé', 'No por ahora']],
 ];
 
 const REGALOS = [
-    ['🌭', '¡Un hot dog de pixeles! Calorías: 0. Sabor: 0. Emoción: 100.'],
-    ['🥓', '¡Un tocino imaginario! Crujiente solo en tu mente.'],
-    ['🧀', '¡Una probadita virtual de queso de puerco! Válida con una sonrisa.'],
-    ['🐷', '¡Un cochinito de la suerte! No da dinero, pero da buena vibra.'],
-    ['🥪', '¡Una torta de jamón virtual! Cero migajas, cero hambre saciada.'],
-    ['🏆', '¡Trofeo al Cliente Más Embutido del Año! Solo existe en tu imaginación.'],
+    ['✨', 'Tu estilo merece brillar. Gracias por ayudarnos a mejorar.'],
+    ['🧢', '¡Buen gusto! Que nunca falte un accesorio que te represente.'],
+    ['👕', 'Un básico para combinar con todo: gracias por ser parte de Ropita.'],
+    ['💜', '¡Tu opinión nos inspira a crear una tienda más bonita para todos!'],
 ];
